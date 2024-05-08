@@ -388,20 +388,20 @@ public class TElementoAB<T> implements IElementoAB<T> {
             return this.hijoIzq;
         }
 
-        TElementoAB<T> elHijo = this.hijoIzq;
-        TElementoAB<T> elPadre = this;
+        TElementoAB elHijo = this.hijoIzq;
+        TElementoAB elPadre = this;
 
-        while (elHijo.hijoDer != null) {
+        while (elHijo.getHijoDer() != null) {
             elPadre = elHijo;
-            elHijo = elHijo.hijoDer;
+            elHijo = elHijo.getHijoDer();
         }
 
         if (elPadre != this) {
-            elPadre.hijoDer = elHijo.hijoIzq;
-            elHijo.hijoIzq = this.hijoIzq;
+            elPadre.setHijoDer(elHijo.getHijoIzq());
+            elHijo.setHijoDer(this.hijoIzq);
         }
 
-        elHijo.hijoDer = this.hijoDer;
+        elHijo.setHijoDer(this.hijoDer);
         return elHijo;
     }
 
