@@ -11,7 +11,7 @@ public class Main {
      */
     public static void main(String[] args) {
         Almacen almacen = new Almacen("Julio");
-        String[] archivo = ManejadorArchivosGenerico.leerArchivo("src\\test\\java\\ut4\\utils\\altasPrueba.txt");
+        String[] archivo = ManejadorArchivosGenerico.leerArchivo("src\\main\\java\\ut4\\utils\\altasPrueba.txt");
         String[] linea;
         Producto nuevoProducto;
         for (String string : archivo) {
@@ -53,7 +53,7 @@ public class Main {
         System.out.println("stock sin reducir de 1000087");
         System.out.println(almacen.buscarPorCodigo("1000087").getStock());
 
-        archivo = ManejadorArchivosGenerico.leerArchivo("src\\test\\java\\ut4\\utils\\ventasPrueba.txt");
+        archivo = ManejadorArchivosGenerico.leerArchivo("src\\main\\java\\ut4\\utils\\ventasPrueba.txt");
         for (String string : archivo) {
             linea = string.split(",");
             if (almacen.buscarPorCodigo(linea[0]) != null) {
@@ -65,7 +65,7 @@ public class Main {
         System.out.println(almacen.buscarPorCodigo("1000087").getStock());
 
         /* eliminar */
-        archivo = ManejadorArchivosGenerico.leerArchivo("src\\test\\java\\ut4\\utils\\elimPrueba.txt");
+        archivo = ManejadorArchivosGenerico.leerArchivo("src\\main\\java\\ut4\\utils\\elimPrueba.txt");
         for (String string : archivo) {
             if (almacen.buscarPorCodigo(string) != null) {
                 System.out.println(string +" eliminado:");
