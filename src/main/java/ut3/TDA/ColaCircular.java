@@ -58,7 +58,7 @@ public class ColaCircular<T> implements ICola<T> {
 
     @Override
     public boolean estaLlena() {
-        return cantElementos != 0;
+        return cantElementos == capacidad;
     }
 
     @Override
