@@ -1,6 +1,6 @@
 package ut5.TDA;
 
-public class TNodoAG<T> implements INodoAG<T>{
+public class TNodoAG<T> implements INodoAG<T> {
 
     private TNodoAG<T> hijoIzquierdo;
     private TNodoAG<T> hermanoDerecho;
@@ -23,6 +23,7 @@ public class TNodoAG<T> implements INodoAG<T>{
     public TNodoAG<T> getHermanoDerecho() {
         return hermanoDerecho;
     }
+
     @Override
     public Comparable getEtiqueta() {
         return etiqueta;
@@ -35,7 +36,7 @@ public class TNodoAG<T> implements INodoAG<T>{
 
     @Override
     public void setHijoIzquierdo(TNodoAG<T> nodo) {
-       this.hijoIzquierdo = nodo;
+        this.hijoIzquierdo = nodo;
     }
 
     @Override
@@ -67,15 +68,15 @@ public class TNodoAG<T> implements INodoAG<T>{
             hijo.hermanoDerecho = new TNodoAG<T>(unaEtiqueta, null);
             return true;
         }
-        if (hermanoDerecho != null){
+        if (hermanoDerecho != null) {
             boolean insercionHermano = hermanoDerecho.insertar(unaEtiqueta, etiquetaPadre);
-            if (insercionHermano){
+            if (insercionHermano) {
                 return true;
             }
         }
-        if (hijoIzquierdo != null){
+        if (hijoIzquierdo != null) {
             boolean insercionHijo = hijoIzquierdo.insertar(unaEtiqueta, etiquetaPadre);
-            if (insercionHijo){
+            if (insercionHijo) {
                 return true;
             }
         }
@@ -99,15 +100,15 @@ public class TNodoAG<T> implements INodoAG<T>{
         if (unaEtiqueta == etiqueta) {
             return true;
         }
-        if (hermanoDerecho != null){
+        if (hermanoDerecho != null) {
             boolean busquedaHermano = hermanoDerecho.buscar(unaEtiqueta);
-            if (busquedaHermano){
+            if (busquedaHermano) {
                 return true;
             }
         }
-        if (hijoIzquierdo != null){
+        if (hijoIzquierdo != null) {
             boolean busquedaHijo = hijoIzquierdo.buscar(unaEtiqueta);
-            if (busquedaHijo){
+            if (busquedaHijo) {
                 return true;
             }
         }
@@ -142,11 +143,11 @@ public class TNodoAG<T> implements INodoAG<T>{
     public String listarIndentadoPorNiveles() {
         StringBuilder sb = new StringBuilder();
         sb.append(etiqueta.toString());
-        if (hijoIzquierdo != null){
-            sb.append("\n"+indentNewLines(hijoIzquierdo.listarIndentadoPorNiveles()));
+        if (hijoIzquierdo != null) {
+            sb.append("\n" + indentNewLines(hijoIzquierdo.listarIndentadoPorNiveles()));
         }
-        if (hermanoDerecho != null){
-            sb.append("\n"+ hermanoDerecho.listarIndentadoPorNiveles());
+        if (hermanoDerecho != null) {
+            sb.append("\n" + hermanoDerecho.listarIndentadoPorNiveles());
         }
         return sb.toString();
     }
@@ -161,7 +162,5 @@ public class TNodoAG<T> implements INodoAG<T>{
 
         return stringBuilder.toString();
     }
-
-
 
 }

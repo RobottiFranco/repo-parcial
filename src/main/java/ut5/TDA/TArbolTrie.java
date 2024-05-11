@@ -3,8 +3,10 @@ package ut5.TDA;
 import java.util.*;
 
 /**
- * La clase TArbolTrie implementa la interfaz IArbolTrie y representa un árbol Trie para el manejo eficiente de un conjunto de palabras.
- * Esta estructura de datos facilita la inserción, búsqueda y predicción de palabras basadas en prefijos.
+ * La clase TArbolTrie implementa la interfaz IArbolTrie y representa un árbol
+ * Trie para el manejo eficiente de un conjunto de palabras.
+ * Esta estructura de datos facilita la inserción, búsqueda y predicción de
+ * palabras basadas en prefijos.
  */
 public class TArbolTrie implements IArbolTrie {
 
@@ -14,7 +16,8 @@ public class TArbolTrie implements IArbolTrie {
     private TNodoTrie raiz;
 
     /**
-     * Inserta una palabra en el árbol Trie. Si la raíz es nula, se crea un nuevo nodo raíz y se inserta la palabra a partir de este nodo.
+     * Inserta una palabra en el árbol Trie. Si la raíz es nula, se crea un nuevo
+     * nodo raíz y se inserta la palabra a partir de este nodo.
      *
      * @param palabra La palabra a insertar en el árbol Trie.
      */
@@ -27,7 +30,8 @@ public class TArbolTrie implements IArbolTrie {
     }
 
     /**
-     * Imprime todas las palabras contenidas en el árbol Trie. Si la raíz no es nula, se delega la impresión al nodo raíz.
+     * Imprime todas las palabras contenidas en el árbol Trie. Si la raíz no es
+     * nula, se delega la impresión al nodo raíz.
      */
     @Override
     public void imprimir() {
@@ -37,7 +41,8 @@ public class TArbolTrie implements IArbolTrie {
     }
 
     /**
-     * Busca una palabra en el árbol Trie y devuelve la cantidad de comparaciones realizadas.
+     * Busca una palabra en el árbol Trie y devuelve la cantidad de comparaciones
+     * realizadas.
      * Si la raíz es nula, se devuelve 0, indicando que no se encontró la palabra.
      * Si la raíz no es nula, se delega la búsqueda al nodo raíz.
      *
@@ -53,11 +58,13 @@ public class TArbolTrie implements IArbolTrie {
     }
 
     /**
-     * Dado un prefijo, genera una lista de todas las palabras en el árbol Trie que comienzan con ese prefijo.
+     * Dado un prefijo, genera una lista de todas las palabras en el árbol Trie que
+     * comienzan con ese prefijo.
      * Si la raíz es nula o el prefijo es nulo o vacío, se devuelve una lista vacía.
      * Si no, se delega la operación de predicción al nodo raíz.
      *
-     * @param prefijo El prefijo a utilizar para encontrar palabras que comiencen con él.
+     * @param prefijo El prefijo a utilizar para encontrar palabras que comiencen
+     *                con él.
      * @return Una lista de palabras que comienzan con el prefijo dado.
      */
     @Override

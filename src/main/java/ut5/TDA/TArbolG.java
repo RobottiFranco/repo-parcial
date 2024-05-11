@@ -1,6 +1,6 @@
 package ut5.TDA;
 
-public class TArbolG<T> implements IArbolG<T>{
+public class TArbolG<T> implements IArbolG<T> {
 
     private TNodoAG<T> raiz;
 
@@ -24,7 +24,7 @@ public class TArbolG<T> implements IArbolG<T>{
             raiz = new TNodoAG<T>(unaEtiqueta, null);
             return true;
         }
-        if (raiz == null){
+        if (raiz == null) {
             return false;
         } else {
             return raiz.insertar(unaEtiqueta, etiquetaPadre);
@@ -90,15 +90,11 @@ public class TArbolG<T> implements IArbolG<T>{
 
     @Override
     public String listarIndentadoPorNiveles() {
-        if (raiz == null){
+        if (raiz == null) {
             return "";
         } else {
             return raiz.listarIndentadoPorNiveles();
         }
     }
-
-
-
-
 
 }
