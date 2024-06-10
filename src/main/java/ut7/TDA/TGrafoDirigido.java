@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class TGrafoDirigido implements IGrafoDirigido {
@@ -324,11 +326,14 @@ public class TGrafoDirigido implements IGrafoDirigido {
         int j = new ArrayList<>(vertices.keySet()).indexOf(etiquetaVertice);
         double excentricidad = 0.0;
         for (int i = 0; i < floyd.length; i++) {
-            excentricidad = (floyd[i][j] > excentricidad) ? floyd[i][j] : excentricidad;
+            if (floyd[i][j] == Double.MAX_VALUE) {
+                excentricidad = 0;
+            } else {
+                excentricidad = (floyd[i][j] > excentricidad) ? floyd[i][j] : excentricidad;
+            }
         }
         return excentricidad;
     }
-
     @Override
     public TCaminos todosLosCaminos(Comparable etiquetaOrigen, Comparable etiquetaDestino) {
         if (buscarVertice(etiquetaOrigen) != null && buscarVertice(etiquetaDestino) != null) {
