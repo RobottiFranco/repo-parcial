@@ -39,6 +39,25 @@ public class TGrafoDirigido implements IGrafoDirigido {
         return false;
     }
 
+    /* es por lista de predecesores, materia 1 y 2 preceden a materia 3 */
+    public LinkedList<String> ordenParcial() {
+        LinkedList<String> resultado = new LinkedList<>();
+        Set<TVertice> visitados = new HashSet<>();
+        for (TVertice vertice : vertices.values()) {
+            if (!visitados.contains(vertice)) {
+                vertice.ordenParcial(visitados, resultado);
+            }
+        }
+        return resultado;
+    }
+
+    public void listarVerticeOrdenParcial(LinkedList<String> orden) {
+        for (String tarea : orden) {
+            System.out.println(tarea);
+        }
+    }
+
+
     /**
      * Metodo encargado de eliminar un vertice en el grafo. En caso de no
      * existir el v�rtice, retorna falso. En caso de que la etiqueta sea
