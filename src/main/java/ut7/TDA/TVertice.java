@@ -3,6 +3,7 @@ package ut7.TDA;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class TVertice<T> implements IVertice {
 
