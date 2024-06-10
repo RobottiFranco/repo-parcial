@@ -1,0 +1,8 @@
+Tarea1,Tarea2,1.0
+Tarea2,Tarea3,1.0
+Tarea1,Tarea3,1.0
+Tarea3,Tarea4,1.0
+Tarea2,Tarea5,1.0
+Tarea5,Tarea6,1.0
+Tarea4,Fin,1.0
+Tarea6,Fin,1.0
