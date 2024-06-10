@@ -56,6 +56,18 @@ public class TVertice<T> implements IVertice {
         return Double.MAX_VALUE;
     }
 
+    /* llamado del orden parcial del grafo */
+    public void ordenParcial(Set<TVertice> visitados, LinkedList<String> resultado) {
+        visitados.add(this);
+        for (TAdyacencia adyacencia : this.adyacentes) {
+            TVertice destino = adyacencia.getDestino();
+            if (!visitados.contains(destino)) {
+                destino.ordenParcial(visitados, resultado);
+            }
+        }
+        resultado.addFirst(this.etiqueta.toString());
+    }
+
     @Override
     public boolean insertarAdyacencia(Double costo, TVertice verticeDestino) {
         if (buscarAdyacencia(verticeDestino) == null) {
