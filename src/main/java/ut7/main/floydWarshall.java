@@ -3,9 +3,10 @@ package ut7.main;
 import ut7.TDA.TGrafoDirigido;
 import ut7.TDA.UtilGrafos;
 
-public class floyd2 {
+public class floydWarshall {
     public static void main(String[] args) {
-        TGrafoDirigido gd = (TGrafoDirigido) UtilGrafos.cargarGrafo("src\\main\\java\\ut7\\utils\\aeropuertos_1.txt", "src\\main\\java\\ut7\\utils\\conexiones_1.txt",
+        TGrafoDirigido gd = (TGrafoDirigido) UtilGrafos.cargarGrafo("src\\main\\java\\ut7\\utils\\aeropuertos_1.txt",
+                "src\\main\\java\\ut7\\utils\\conexiones_1.txt",
                 false, TGrafoDirigido.class);
 
         Object[] etiquetasarray = gd.getEtiquetasOrdenado();
@@ -21,5 +22,7 @@ public class floyd2 {
         System.out.println();
         System.out.println("Centro del grafo: " + gd.centroDelGrafo());
 
+        boolean[][] matrizWarshall = gd.warshall();
+        UtilGrafos.imprimirMatrizMejorado(matrizWarshall, gd.getVertices(), "Matriz luego de warshall", true);
     }
 }

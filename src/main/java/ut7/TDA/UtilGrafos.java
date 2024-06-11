@@ -97,6 +97,56 @@ public class UtilGrafos {
         }
     }
 
+    public static void imprimirMatrizMejorado(boolean[][] matriz, Map<Comparable, TVertice> vertices, String titulo,
+            boolean imprimir) {
+        if (!imprimir) {
+            return;
+        }
+
+        if (vertices != null && matriz.length == vertices.keySet().size()) {
+            Comparable[] etiquetas = vertices.keySet().toArray(new Comparable[vertices.keySet().size()]);
+            int etiquetaMasLarga = stringMasLargo(etiquetas);
+            int datoMasLargo = Math.max(5, "true".length());
+            int separacionEntreColumnas = 3;
+
+            int largo = Math.max(etiquetaMasLarga, datoMasLargo) + separacionEntreColumnas;
+
+            for (int i = 0; i < etiquetas.length; i++) {
+                etiquetas[i] = rellenar(etiquetas[i].toString(), largo, ' ');
+            }
+
+            int tope = (largo) * (etiquetas.length + 1);
+
+            String linea = rellenar("", tope, '-');
+            String separador = rellenar("", largo, ' ');
+            String sepTitulo = rellenar("", tope, '*');
+
+            System.out.println(sepTitulo);
+            System.out.println(devolverCentrado(titulo, tope));
+            System.out.println(sepTitulo);
+            System.out.println(linea);
+
+            System.out.print(separador);
+            for (int i = 0; i < matriz.length; i++) {
+                System.out.print(etiquetas[i]);
+            }
+
+            System.out.println();
+            System.out.println(linea);
+
+            for (int i = 0; i < matriz.length; i++) {
+                System.out.print(etiquetas[i]);
+                for (int j = 0; j < matriz.length; j++) {
+                    String valor = matriz[i][j] ? "true" : "false";
+                    System.out.print(rellenar(valor, largo, ' '));
+                }
+                System.out.println();
+                System.out.println(linea);
+            }
+        }
+        System.out.println();
+    }
+
     public static void imprimirMatrizMejorado(Comparable[][] matriz, Map<Comparable, TVertice> vertices,
             String titulo) {
         if (vertices != null && matriz.length == vertices.keySet().size()) {
