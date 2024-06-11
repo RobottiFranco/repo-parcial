@@ -27,8 +27,8 @@ public interface IVertice {
 
     TVertice siguienteAdyacente(TVertice w);
 
-    public void bpf(Collection<TVertice> visitados);
-
+/*     public void bpf(Collection<TVertice> visitados);
+ */
     public TCaminos todosLosCaminos(Comparable etVertDest, TCamino caminoPrevio, TCaminos todosLosCaminos);
 
 

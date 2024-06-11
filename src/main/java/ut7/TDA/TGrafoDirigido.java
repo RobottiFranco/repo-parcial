@@ -217,12 +217,23 @@ public class TGrafoDirigido implements IGrafoDirigido {
     }
 
     @Override
-    public Collection<Comparable> bpf(Comparable etiquetaOrigen) {
+/*     public Collection<Comparable> bpf(Comparable etiquetaOrigen) {
         TVertice origen = buscarVertice(etiquetaOrigen);
         if (origen == null) {
             return null;
         }
         return bpf(origen);
+    } */
+    public Collection<Comparable> bpf(Comparable etiquetaOrigen) {
+        this.desvisitarVertices();
+
+        TVertice origen = buscarVertice(etiquetaOrigen);
+        if (origen == null) {
+            return null;
+        }
+        Collection <Comparable> devolver = new LinkedList<Comparable>();
+        origen.bpf(devolver);
+        return devolver;
     }
 
     @Override
@@ -230,7 +241,7 @@ public class TGrafoDirigido implements IGrafoDirigido {
      * BPF del grafo, a partir del primer vértice, para todos los vertices
      */
 
-    public Collection<Comparable> bpf() {
+/*     public Collection<Comparable> bpf() {
 
         this.desvisitarVertices();
 
@@ -239,6 +250,21 @@ public class TGrafoDirigido implements IGrafoDirigido {
         for (TVertice tVertice : vertices.values()) {
             if (!tVertice.getVisitado()) {
                 recorridos.addAll(bpf(tVertice));
+            }
+        }
+        return recorridos;
+    } */
+    public Collection<Comparable> bpf() {
+
+        this.desvisitarVertices();
+
+        LinkedList<Comparable> recorridos = new LinkedList<Comparable>();
+
+        for (TVertice tVertice : vertices.values()) {
+            if (!tVertice.getVisitado()) {
+                LinkedList<Comparable> recorrido = new LinkedList<Comparable>();
+                tVertice.bpf(recorrido);
+                recorridos.addAll(recorrido);
             }
         }
         return recorridos;

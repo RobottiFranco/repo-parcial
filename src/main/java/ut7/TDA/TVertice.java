@@ -111,10 +111,20 @@ public class TVertice<T> implements IVertice {
         return datos;
     }
 
-    @Override
+/*     @Override
     public void bpf(Collection<TVertice> visitados) {
         setVisitado(true);
         visitados.add(this);
+        for (TAdyacencia adyacente : adyacentes) {
+            TVertice vertAdy = adyacente.getDestino();
+            if (!vertAdy.getVisitado()) {
+                vertAdy.bpf(visitados);
+            }
+        }
+    } */
+    public void bpf(Collection<Comparable> visitados) {
+        setVisitado(true);
+        visitados.add(this.getEtiqueta());
         for (TAdyacencia adyacente : adyacentes) {
             TVertice vertAdy = adyacente.getDestino();
             if (!vertAdy.getVisitado()) {
