@@ -59,7 +59,6 @@ public class TGrafoDirigido implements IGrafoDirigido {
         }
     }
 
-
     /**
      * Metodo encargado de eliminar un vertice en el grafo. En caso de no
      * existir el v�rtice, retorna falso. En caso de que la etiqueta sea
@@ -217,13 +216,15 @@ public class TGrafoDirigido implements IGrafoDirigido {
     }
 
     @Override
-/*     public Collection<Comparable> bpf(Comparable etiquetaOrigen) {
-        TVertice origen = buscarVertice(etiquetaOrigen);
-        if (origen == null) {
-            return null;
-        }
-        return bpf(origen);
-    } */
+    /*
+     * public Collection<Comparable> bpf(Comparable etiquetaOrigen) {
+     * TVertice origen = buscarVertice(etiquetaOrigen);
+     * if (origen == null) {
+     * return null;
+     * }
+     * return bpf(origen);
+     * }
+     */
     public Collection<Comparable> bpf(Comparable etiquetaOrigen) {
         this.desvisitarVertices();
 
@@ -231,7 +232,7 @@ public class TGrafoDirigido implements IGrafoDirigido {
         if (origen == null) {
             return null;
         }
-        Collection <Comparable> devolver = new LinkedList<Comparable>();
+        Collection<Comparable> devolver = new LinkedList<Comparable>();
         origen.bpf(devolver);
         return devolver;
     }
@@ -241,19 +242,21 @@ public class TGrafoDirigido implements IGrafoDirigido {
      * BPF del grafo, a partir del primer vértice, para todos los vertices
      */
 
-/*     public Collection<Comparable> bpf() {
-
-        this.desvisitarVertices();
-
-        List<Comparable> recorridos = new ArrayList<>(this.vertices.size());
-
-        for (TVertice tVertice : vertices.values()) {
-            if (!tVertice.getVisitado()) {
-                recorridos.addAll(bpf(tVertice));
-            }
-        }
-        return recorridos;
-    } */
+    /*
+     * public Collection<Comparable> bpf() {
+     *
+     * this.desvisitarVertices();
+     *
+     * List<Comparable> recorridos = new ArrayList<>(this.vertices.size());
+     *
+     * for (TVertice tVertice : vertices.values()) {
+     * if (!tVertice.getVisitado()) {
+     * recorridos.addAll(bpf(tVertice));
+     * }
+     * }
+     * return recorridos;
+     * }
+     */
     public Collection<Comparable> bpf() {
 
         this.desvisitarVertices();
@@ -274,8 +277,8 @@ public class TGrafoDirigido implements IGrafoDirigido {
         this.desvisitarVertices();
         LinkedList<TVertice> res = new LinkedList<>();
         for (TVertice v : this.vertices.values()) {
-            if(!v.getVisitado()){
-                v.bpf(res);
+            if (!v.getVisitado()) {
+                v.bpfVertice(res);
             }
         }
         desvisitarVertices();
@@ -286,8 +289,8 @@ public class TGrafoDirigido implements IGrafoDirigido {
         desvisitarVertices();
         LinkedList<TVertice> res = new LinkedList<>();
         TVertice v = this.buscarVertice(etiquetaOrigen);
-        if(v != null){
-             v.bpf(res);
+        if (v != null) {
+            v.bpfVertice(res);
         }
         desvisitarVertices();
         return res;
@@ -383,14 +386,26 @@ public class TGrafoDirigido implements IGrafoDirigido {
         }
         return excentricidad;
     }
+
     @Override
     public TCaminos todosLosCaminos(Comparable etiquetaOrigen, Comparable etiquetaDestino) {
-        if (buscarVertice(etiquetaOrigen) != null && buscarVertice(etiquetaDestino) != null) {
-            desvisitarVertices();
-            TVertice origen = buscarVertice(etiquetaOrigen);
-            TCamino camino = new TCamino(origen);
-            TCaminos caminos = new TCaminos();
-            return origen.todosLosCaminos(etiquetaDestino, camino, caminos);
+        /*
+         * if (buscarVertice(etiquetaOrigen) != null && buscarVertice(etiquetaDestino)
+         * != null) {
+         * desvisitarVertices();
+         * TVertice origen = buscarVertice(etiquetaOrigen);
+         * TCamino camino = new TCamino(origen);
+         * TCaminos caminos = new TCaminos();
+         * return origen.todosLosCaminos(etiquetaDestino, camino, caminos);
+         * }
+         * return null;
+         */
+        TCaminos todosLosCaminos = new TCaminos();
+        TVertice v = buscarVertice(etiquetaOrigen);
+        if (v != null) {
+            TCamino caminoPrevio = new TCamino(v);
+            v.todosLosCaminos(etiquetaDestino, caminoPrevio, todosLosCaminos);
+            return todosLosCaminos;
         }
         return null;
     }

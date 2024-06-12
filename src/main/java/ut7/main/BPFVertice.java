@@ -11,8 +11,8 @@ public class BPFVertice {
                 false, TGrafoDirigido.class);
 
         Collection<TVertice> recorrido = gd.bpfVertices();
-        System.out.println(recorrido);
-
+/*         System.out.println(recorrido);
+ */
         for (TVertice tVertice : recorrido) {
             System.out.println(tVertice.getEtiqueta());
         }
@@ -21,8 +21,8 @@ public class BPFVertice {
         System.out.println("");
         // imprimir etiquetas del bpf de todo el grafo....
         Collection<TVertice> recorrido_Asuncion = gd.bpfVertices("Asuncion");
-        System.out.println(recorrido);
-
+/*         System.out.println(recorrido);
+ */
         for (TVertice tVertice : recorrido_Asuncion) {
             System.out.println(tVertice.getEtiqueta());
         }

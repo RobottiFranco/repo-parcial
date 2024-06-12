@@ -140,7 +140,7 @@ public class TVertice<T> implements IVertice {
         for (TAdyacencia a : this.adyacentes) {
             TVertice v = a.getDestino();
             if (!v.getVisitado()) {
-                v.bpf(visitados);
+                v.bpfVertice(visitados);
             }
         }
     }
