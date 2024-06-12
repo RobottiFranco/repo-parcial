@@ -133,6 +133,18 @@ public class TVertice<T> implements IVertice {
         }
     }
 
+    public void bpfVertice(Collection<TVertice> visitados) {
+        visitados.add(this);
+        this.visitado = true;
+
+        for (TAdyacencia a : this.adyacentes) {
+            TVertice v = a.getDestino();
+            if (!v.getVisitado()) {
+                v.bpf(visitados);
+            }
+        }
+    }
+
     @Override
     public TVertice primerAdyacente() {
         if (this.adyacentes.getFirst() != null) {

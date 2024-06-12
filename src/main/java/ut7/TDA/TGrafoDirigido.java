@@ -270,6 +270,29 @@ public class TGrafoDirigido implements IGrafoDirigido {
         return recorridos;
     }
 
+    public Collection<TVertice> bpfVertices() {
+        this.desvisitarVertices();
+        LinkedList<TVertice> res = new LinkedList<>();
+        for (TVertice v : this.vertices.values()) {
+            if(!v.getVisitado()){
+                v.bpf(res);
+            }
+        }
+        desvisitarVertices();
+        return res;
+    }
+
+    public Collection<TVertice> bpfVertices(Comparable etiquetaOrigen) {
+        desvisitarVertices();
+        LinkedList<TVertice> res = new LinkedList<>();
+        TVertice v = this.buscarVertice(etiquetaOrigen);
+        if(v != null){
+             v.bpf(res);
+        }
+        desvisitarVertices();
+        return res;
+    }
+
     public void desvisitarVertices() {
         for (TVertice vertice : this.vertices.values()) {
             vertice.setVisitado(false);
