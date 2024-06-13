@@ -2,6 +2,7 @@ package ut7.main;
 
 import java.util.Collection;
 
+import ut7.TDA.TCamino;
 import ut7.TDA.TCaminos;
 import ut7.TDA.TGrafoDirigido;
 import ut7.TDA.UtilGrafos;
@@ -9,7 +10,8 @@ import ut7.TDA.UtilGrafos;
 public class BPFCamino {
     public static void main(String[] args) {
         /* ej1 */
-        TGrafoDirigido VUELE_SEGURO = (TGrafoDirigido) UtilGrafos.cargarGrafo("src\\main\\java\\ut7\\utils\\aeropuertos.txt", "src\\main\\java\\ut7\\utils\\conexiones.txt",
+        TGrafoDirigido VUELE_SEGURO = (TGrafoDirigido) UtilGrafos.cargarGrafo(
+                "src\\main\\java\\ut7\\utils\\aeropuertos.txt", "src\\main\\java\\ut7\\utils\\conexiones.txt",
                 false, TGrafoDirigido.class);
         Double[][] matriz = UtilGrafos.obtenerMatrizCostos(VUELE_SEGURO.getVertices());
         UtilGrafos.imprimirMatrizMejorado(matriz, VUELE_SEGURO.getVertices(), "Matriz vuelos");
@@ -37,5 +39,9 @@ public class BPFCamino {
         for (Comparable tVertice : bpf) {
             System.out.println(tVertice);
         }
+
+        TCamino x = caminoPorto_AlegreSantos.getCaminoCritico();
+        System.out.println(x.getCostoTotal());
+        x.imprimirEtiquetasConsola();
     }
 }
