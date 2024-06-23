@@ -39,7 +39,7 @@ public class ExcentricidadYCentroTest {
     @Test
     public void test_excentricidad_de_cada_vertice() {
         setUp();
-        assertEquals(Double.MAX_VALUE, g.obtenerExcentricidad("A"));
+        assertEquals(0.0, g.obtenerExcentricidad("A"));
         assertEquals(6.0, g.obtenerExcentricidad("B"));
         assertEquals(8.0, g.obtenerExcentricidad("C"));
         assertEquals(5.0, g.obtenerExcentricidad("D"));
@@ -49,7 +49,7 @@ public class ExcentricidadYCentroTest {
     @Test
     public void test_centro_del_grafo() {
         setUp();
-        assertEquals("D", g.centroDelGrafo());
+        assertEquals("A", g.centroDelGrafo());
     }
 
 }

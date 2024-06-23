@@ -50,7 +50,7 @@ public class BpfTest {
     @Test
     public void bpf_de_todos_los_vertices_con_dos_componentes_conexos() {
         setUp();
-        List<TVertice> bpf = (ArrayList) g.bpf();
+        List<TVertice> bpf = (ArrayList) g.bpfVertices();
 
         assertEquals("A", bpf.get(0).getEtiqueta());
         assertEquals("B", bpf.get(1).getEtiqueta());
@@ -65,7 +65,7 @@ public class BpfTest {
     @Test
     public void bpf_desde_etiqueta_existente_en_un_componente_conexo() {
         setUp();
-        List<TVertice> bpf = (LinkedList) g.bpf("A");
+        List<TVertice> bpf = (LinkedList) g.bpfVertices("A");
 
         assertEquals("A", bpf.get(0).getEtiqueta());
         assertEquals("B", bpf.get(1).getEtiqueta());
@@ -77,7 +77,7 @@ public class BpfTest {
     @Test
     public void bpf_desde_etiqueta_inexistente() {
         setUp();
-        List<TVertice> bpf = (LinkedList) g.bpf("Z");
-        assertEquals(null, bpf);
+        List<TVertice> bpf = (LinkedList) g.bpfVertices("Z");
+        assertEquals(true, bpf.isEmpty());
     }
 }
