@@ -389,17 +389,6 @@ public class TGrafoDirigido implements IGrafoDirigido {
 
     @Override
     public TCaminos todosLosCaminos(Comparable etiquetaOrigen, Comparable etiquetaDestino) {
-        /*
-         * if (buscarVertice(etiquetaOrigen) != null && buscarVertice(etiquetaDestino)
-         * != null) {
-         * desvisitarVertices();
-         * TVertice origen = buscarVertice(etiquetaOrigen);
-         * TCamino camino = new TCamino(origen);
-         * TCaminos caminos = new TCaminos();
-         * return origen.todosLosCaminos(etiquetaDestino, camino, caminos);
-         * }
-         * return null;
-         */
         TCaminos todosLosCaminos = new TCaminos();
         TVertice v = buscarVertice(etiquetaOrigen);
         if (v != null) {

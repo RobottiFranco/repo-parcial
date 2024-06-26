@@ -136,6 +136,19 @@ public class TGrafoNoDirigido extends TGrafoDirigido implements IGrafoNoDirigido
         return result;
     }
 
+    public Collection<TVertice> bea() {
+        if (getVertices().isEmpty()) {
+            return null;
+        }
+        TVertice verticeOrigen = getVertices().values().iterator().next();
+        if (verticeOrigen == null) {
+            return null;
+        }
+        List<TVertice> result = new LinkedList<>();
+        verticeOrigen.bea(result);
+        return result;
+    }
+
     @Override
     public boolean esConexo() {
         desvisitarVertices();
@@ -170,7 +183,7 @@ public class TGrafoNoDirigido extends TGrafoDirigido implements IGrafoNoDirigido
     }
 
     public List<TVertice> menosSaltos(Comparable origen, Comparable destino) {
-        if(origen != null && destino != null) {
+        if (origen != null && destino != null) {
             TVertice vertOrigen = buscarVertice(origen);
             TVertice vertDestino = buscarVertice(destino);
             if (vertOrigen != null && vertDestino != null) {
